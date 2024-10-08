@@ -6,4 +6,12 @@ class Product:
         self.old_price = old_price
 
     def __str__(self):
-        return f"Product: {self.name}, Price: {self.price}, Discount: {self.discount}, OldPrice: {self.old_price}"
+        return f"{self.name}, Price: {self.price}, Discount: {self.discount}, OldPrice: {self.old_price}"
+
+    def to_dict(self):
+        return {
+            'Name': self.name,
+            'Price': self.price,
+            'Discount': self.discount,
+            'Old Price': self.old_price
+        }
