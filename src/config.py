@@ -2,3 +2,5 @@ WEBSITE_URL = 'https://www.nykaa.com/brands/kay-beauty/c/11433?category_filter=2
 
 # TODO : Replace this path and create a folder inside the code or use common directory and add info in readme file
 CHROME_DRIVER_PATH = "/Users/aashr/Downloads/chrome-win64/chromedriver"
+
+PRODUCT_API_BASEURL= 'http://127.0.0.1:5000'
