@@ -1,9 +1,12 @@
+import os
+import shutil
+
 from selenium import webdriver as wd
 from selenium.webdriver.common.by import By
-
+from datetime import datetime
 from config import WEBSITE_URL
 from src.models import Product
-from src.storage import create_dataframe
+from src.storage import create_dataframe, send_data_api
 from src.utils import find_element
 
 driver = wd.Chrome()
@@ -29,4 +32,12 @@ for item in products:
 driver.close()
 
 df = create_dataframe(product_list)
-df.to_excel(df, '../data/raw/products_data.xlsx')
+
+date = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+file_name=f'products_data_{date}.json'
+file = f'../data/raw/{file_name}'
+df.to_json(file, orient='records', indent=4)
+
+send_data_api(product_list)
+# flask_api_project=r"C:\Users\aashr\PycharmProjects\FlaskAPIProject\Data\\"+file_name
+# shutil.copy(file,flask_api_project)
