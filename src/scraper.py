@@ -39,5 +39,6 @@ file = f'../data/raw/{file_name}'
 df.to_json(file, orient='records', indent=4)
 
 send_data_api(product_list)
+
 # flask_api_project=r"C:\Users\aashr\PycharmProjects\FlaskAPIProject\Data\\"+file_name
 # shutil.copy(file,flask_api_project)

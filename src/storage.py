@@ -12,7 +12,6 @@ def send_data_api(products):
     products_json= []
     for product in products:
         products_json.append(product.to_dict())
-
     response = requests.post(PRODUCT_API_BASEURL+'/products', json=products_json)
 
 
